@@ -2,5 +2,6 @@ from django.urls import path
 from AppRegistro import views
 
 urlpatterns = [
-    path('registro', views.registro),
+    path('inicio', views.inicio, name='Inicio'),
+    path('registro', views.registro, name='Registrarse'),
 ]

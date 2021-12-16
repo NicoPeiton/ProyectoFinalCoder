@@ -22,5 +22,4 @@ urlpatterns = [
     path('AppLogin/', include('AppLogin.urls')),
     path('AppPerfiles/', include('AppPerfiles.urls')),
     path('AppRegistro/', include('AppRegistro.urls')),
-    path('inicio/', inicio),
 ]

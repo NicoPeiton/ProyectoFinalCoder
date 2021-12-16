@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def perfiles(request):
+    return render(request, "AppPerfiles/perfiles.html")
