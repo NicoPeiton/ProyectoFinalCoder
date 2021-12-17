@@ -5,25 +5,14 @@
 {% block formulario %}
 
 <div class="container">
-    <form>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Nombre de usuario</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">No compartas tu contraseña con nadie!</div>
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-            <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Acepto los términos y condiciones</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+    <form action="/AppRegistro/registro" method="POST"> {% csrf_token %}
+
+        <table>
+            {{ miFormulario.as_table }}
+        </table>
+
+        <input type="submit" value="Registrarse">
+        
     </form>
 </div>
 {% endblock %}
