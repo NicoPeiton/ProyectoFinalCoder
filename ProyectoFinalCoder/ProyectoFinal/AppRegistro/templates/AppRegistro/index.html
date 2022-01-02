@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Creative - Start Bootstrap Theme</title>
+        <title>Ptoyecto Final Russell</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{% static 'AppRegistro/assets/favicon.ico' %}" />
         <!-- Bootstrap Icons-->
@@ -29,7 +29,7 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#about">Quiénes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Quiénes' %}">Quiénes</a></li>
                         <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
@@ -42,15 +42,21 @@
             <div class="container px-4 px-lg-5 h-100">
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
-                        <h1 class="text-white font-weight-bold">¡Bienvenidos!</h1>
+                        {% block titulo %}
+                            <h1 class="text-white font-weight-bold">¡Bienvenidos!</h1>
+                        {% endblock %}
                         <hr class="divider" />
                     </div>
+                    
                     <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 mb-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim autem vero temporibus possimus, eligendi consequatur, magni voluptatem rem odio aperiam pariatur inventore. Illum, inventore molestias. Neque quasi vel atque quo.</p>
-                        <a class="btn btn-primary btn-xl" href="{% url 'Login' %}">Iniciar sesión</a>
-                        <a class="btn btn-primary btn-xl" href="{% url 'Registrarse' %}">Registrarse</a>
-                        <a class="btn btn-primary btn-xl" href="{% url 'Buscar usuario' %}">Buscar usuario</a>
+                        {% block botones %}
+                            <p class="text-white-75 mb-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim autem vero temporibus possimus, eligendi consequatur, magni voluptatem rem odio aperiam pariatur inventore. Illum, inventore molestias. Neque quasi vel atque quo.</p>
+                            <a class="btn btn-primary btn-xl" href="{% url 'Login' %}">Iniciar sesión</a>
+                            <a class="btn btn-primary btn-xl" href="{% url 'Registrarse' %}">Registrarse</a>
+                            <a class="btn btn-primary btn-xl" href="{% url 'Buscar usuario' %}">Buscar usuario</a>
+                        {% endblock %}
                     </div>
+                   
                 </div>
             </div>
         </header>
@@ -58,9 +64,13 @@
         {% block formulario %}
 
         {% endblock %}
+
+        {% block resultadoBusqueda %}
+
+        {% endblock %}
         <!-- Footer-->
         <footer class="bg-light py-5">
-            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">23850 &copy; 2021 - Python-Coder</div></div>
+            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Nicolás Russell - Comisión 23850  2021 - Python - Coderhouse &copy;</div></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

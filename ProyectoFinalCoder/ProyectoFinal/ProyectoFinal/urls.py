@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from ProyectoFinal.views import *
+from AppRegistro import views
 
 urlpatterns = [
+    path('', views.inicio, name='Inicio'),
     path('admin/', admin.site.urls),
     path('AppLogin/', include('AppLogin.urls')),
     path('AppPerfiles/', include('AppPerfiles.urls')),

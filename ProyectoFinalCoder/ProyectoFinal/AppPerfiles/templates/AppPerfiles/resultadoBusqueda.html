@@ -1,0 +1,53 @@
+{% extends 'AppRegistro/index.html' %}
+
+{% load static %}
+
+{% block titulo %}
+    <h1 class="text-white font-weight-bold">Buscar usuario</h1>
+{% endblock %}
+
+{% block botones %}
+    <p class="text-white-75 mb-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim autem vero temporibus possimus, eligendi consequatur, magni voluptatem rem odio aperiam pariatur inventore. Illum, inventore molestias. Neque quasi vel atque quo.</p>
+    <a class="btn btn-primary btn-xl" href="{% url 'Inicio' %}">Volver al inicio</a>
+    <a class="btn btn-primary btn-xl" href="{% url 'Registrarse' %}">Registrarse</a>
+    <a class="btn btn-primary btn-xl" href="{% url 'Login' %}">Iniciar sesión</a>
+{% endblock %}
+
+{% block resultadoBusqueda %}
+
+    <div class="container mt-3">
+
+        <h2>Resultado de la búsqueda:</h2>
+
+        {% if usuarios or redactores or suscriptores %}
+
+            <ul>
+                {% for usuario in usuarios %}
+                    <li>Nombre: {{usuario.nombre}}</li>
+                    <li>Apellido: {{usuario.apellido}}</li>
+                    <li>Usuario: {{usuario.nombreUsuario}}</li>
+                    <li>Es admin: {{usuario.esAdmin}}</li>
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for redactor in redactores %}
+                    <li>Nombre: {{redactor.nombre}}</li>
+                    <li>Apellido: {{redactor.apellido}}</li>
+                    <li>Profesion: {{redactor.profesion}}</li>
+                    <li>Tipo de ususario: redactor</li>
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for suscriptor in suscriptores %}
+                    <li>Nombre: {{suscriptor.nombre}}</li>
+                    <li>Apellido: {{suscriptor.apellido}}</li>
+                    <li>Profesion: {{suscriptor.profesion}}</li>
+                    <li>Tipo de ususario: suscriptor</li>
+                {% endfor %}
+            </ul>
+
+        {% else %}
+            <p>No se encontró usuario</p>
+        {% endif %}  
+    </div>
+{% endblock %}

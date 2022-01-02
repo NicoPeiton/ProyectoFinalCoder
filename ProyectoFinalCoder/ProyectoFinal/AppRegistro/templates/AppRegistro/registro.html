@@ -2,17 +2,15 @@
 
 {% load static %}
 
-{% block formulario %}
 
+{% block titulo %}
+    <h1 class="text-white font-weight-bold">¡Seleccioná el tipo de usuario!</h1>
+{% endblock %}
+
+{% block botones %}
 <div class="container">
-    <form action="/AppRegistro/registro" method="POST"> {% csrf_token %}
-
-        <table>
-            {{ miFormulario.as_table }}
-        </table>
-
-        <input type="submit" value="Registrarse">
-        
-    </form>
+    <a class="btn btn-primary btn-xl" href="{% url 'Usuario' %}">Usuario</a>
+    <a class="btn btn-primary btn-xl" href="{% url 'Redactor' %}">Redactor</a>
+    <a class="btn btn-primary btn-xl" href="{% url 'Suscriptor' %}">Suscriptor</a>
 </div>
 {% endblock %}
