@@ -1,0 +1,26 @@
+{% extends 'AppRegistro/index.html' %}
+
+{% load static %}
+
+{% block titulo %}
+    <h1 class="text-white font-weight-bold">Buscar usuario</h1>
+{% endblock %}
+
+{% block botones %}
+    <p class="text-white-75 mb-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim autem vero temporibus possimus, eligendi consequatur, magni voluptatem rem odio aperiam pariatur inventore. Illum, inventore molestias. Neque quasi vel atque quo.</p>
+    <a class="btn btn-primary btn-xl" href="{% url 'Inicio' %}">Volver al inicio</a>
+    <a class="btn btn-primary btn-xl" href="{% url 'Registrarse' %}">Registrarse</a>
+    <a class="btn btn-primary btn-xl" href="{% url 'Ver Perfiles' %}">Ver Perfiles</a>
+{% endblock %}
+
+{% block formulario %}
+<div class="container">
+        <div class="col-3 mb-3 mt-3">
+            <p>Nombre: {{redactor.nombre}} </p>
+            <p>Apellido: {{redactor.apellido}} </p>
+            <p>email: {{redactor.email}} </p>
+            <p>Profesión: {{redactor.profesion}} </p>
+            <p>Fecha de nacimiento: {{redactor.fechaNacimiento}} </p>
+        </div>
+</div>
+{% endblock %}

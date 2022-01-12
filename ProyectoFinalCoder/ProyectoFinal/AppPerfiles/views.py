@@ -5,6 +5,7 @@ from AppRegistro.models import *
 from AppRegistro.forms import * 
 from django.contrib.auth.decorators import login_required
 from AppPerfiles.forms import UserEditForm
+from django.views.generic.detail import DetailView
 
 
 def buscarPerfiles(request):
@@ -24,6 +25,22 @@ def verPerfiles(request):
 
     return render(request, "AppPerfiles/verPerfiles.html", contexto)
     
+
+class PerfilUsuario(DetailView):
+
+    model = Usuario
+    template_name = "AppPerfiles/perfilUsuario.html"
+
+class PerfilRedactor(DetailView):
+
+    model = Redactor
+    template_name = "AppPerfiles/perfilRedactor.html"
+
+class PerfilSuscriptor(DetailView):
+
+    model = Suscriptor
+    template_name = "AppPerfiles/perfilSuscriptor.html"
+
 
 def buscar(request):
 

@@ -1,0 +1,1 @@
+Nicolás Guillermo Russell - Creación de Apps, Models, Forms, Views, URLs, Templates y DB del proyecto.
