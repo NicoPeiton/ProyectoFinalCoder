@@ -33,6 +33,10 @@
                         <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+                        {% if request.user.is_authenticated %}
+                            <li class="nav-item"><a class="nav-link" href="{% url 'Editar Admin' %}">{{user.username}}</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'Logout' %}">Cerrar sesión</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
@@ -43,7 +47,11 @@
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
                         {% block titulo %}
-                            <h1 class="text-white font-weight-bold">¡Bienvenidos!</h1>
+                            {% if mensaje %}
+                                <h1 class="text-white font-weight-bold">¡Hola, {{mensaje}}!</h1>
+                            {% else %}
+                                <h1 class="text-white font-weight-bold">¡Bienvenidos!</h1>
+                            {% endif %}
                         {% endblock %}
                         <hr class="divider" />
                     </div>

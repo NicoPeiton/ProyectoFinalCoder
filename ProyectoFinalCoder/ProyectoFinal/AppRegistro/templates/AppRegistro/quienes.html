@@ -7,17 +7,19 @@
 {% endblock %}
 
 {% block botones %}
-<div class="container"></div>
-    <div class="col-6">
-        <p class="text-white-75 mb-5 text-start">Tesista de la Lic. en Música y Tecnología de la Universidad Nacional de Quilmes. 
-            Actualmente trabajando en el diseño y desarrollo de un dispositivo de DSP en tiempo real con Teensy y Faust.
-            Durante mis años de formación académica incorporé conocimientos de composición, producción musical, grabación y
-            mezcla de audio; así como también en lenguajes de programación como Python, Processing, Pure Data, Faust y Arduino. 
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p class="text-white-75 mb-5 text-start">Tesista de la Lic. en Música y Tecnología de la Universidad Nacional de Quilmes. 
+                Actualmente trabajando en el diseño y desarrollo de un dispositivo de DSP en tiempo real con Teensy y Faust.
+                Durante mis años de formación académica incorporé conocimientos de composición, producción musical, grabación y
+                mezcla de audio; así como también en lenguajes de programación como Python, Processing, Pure Data, Faust y Arduino. 
             </p>
-        <a class="btn btn-primary btn-xl" href="https://www.linkedin.com/in/nicolás-russell-034908206/">Contactame en linkedin</a>
+        </div>
+        <div class="col">
+            <img src="{% static 'AppRegistro/assets/img/NGR.jpg' %}" alt="">
+        </div>
     </div>
-    <div class="col-6">
-        <img src="" alt="">
-    </div>
+    <a class="btn btn-primary btn-xl" href="https://www.linkedin.com/in/nicolás-russell-034908206/">Contactame en linkedin</a>
 </div>
 {% endblock %}

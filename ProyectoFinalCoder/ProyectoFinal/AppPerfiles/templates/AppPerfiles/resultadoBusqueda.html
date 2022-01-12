@@ -22,27 +22,45 @@
         {% if usuarios or redactores or suscriptores %}
 
             <ul>
-                {% for usuario in usuarios %}
-                    <li>Nombre: {{usuario.nombre}}</li>
-                    <li>Apellido: {{usuario.apellido}}</li>
-                    <li>Usuario: {{usuario.nombreUsuario}}</li>
-                    <li>Es admin: {{usuario.esAdmin}}</li>
+                {% for u in usuarios %}
+                    <li>Nombre: {{u.nombre}}</li>
+                    <li>Apellido: {{u.apellido}}</li>
+                    <li>Usuario: {{u.nombreUsuario}}</li>
+                    <li>Es admin: {{u.esAdmin}}</li>
+                    <button>
+                        <a href="{% url 'Eliminar Usuario' u.id%}">Eliminar</a> 
+                    </button>
+                    <button>
+                        <a href="{% url 'Editar Usuario' u.id%}">Editar</a> 
+                    </button>
                 {% endfor %}
             </ul>
             <ul>
-                {% for redactor in redactores %}
-                    <li>Nombre: {{redactor.nombre}}</li>
-                    <li>Apellido: {{redactor.apellido}}</li>
-                    <li>Profesion: {{redactor.profesion}}</li>
+                {% for r in redactores %}
+                    <li>Nombre: {{r.nombre}}</li>
+                    <li>Apellido: {{r.apellido}}</li>
+                    <li>Profesion: {{r.profesion}}</li>
                     <li>Tipo de ususario: redactor</li>
+                    <button>
+                        <a href="{% url 'Eliminar Usuario' r.id%}">Eliminar</a> 
+                    </button>
+                    <button>
+                        <a href="{% url 'Editar Usuario' r.id%}">Editar</a> 
+                    </button>
                 {% endfor %}
             </ul>
             <ul>
-                {% for suscriptor in suscriptores %}
-                    <li>Nombre: {{suscriptor.nombre}}</li>
-                    <li>Apellido: {{suscriptor.apellido}}</li>
-                    <li>Profesion: {{suscriptor.profesion}}</li>
+                {% for s in suscriptores %}
+                    <li>Nombre: {{s.nombre}}</li>
+                    <li>Apellido: {{s.apellido}}</li>
+                    <li>Profesion: {{s.profesion}}</li>
                     <li>Tipo de ususario: suscriptor</li>
+                    <button>
+                        <a href="{% url 'Eliminar Usuario' s.id%}">Eliminar</a> 
+                    </button>
+                    <button>
+                        <a href="{% url 'Editar Usuario' s.id%}">Editar</a> 
+                    </button>
                 {% endfor %}
             </ul>
 

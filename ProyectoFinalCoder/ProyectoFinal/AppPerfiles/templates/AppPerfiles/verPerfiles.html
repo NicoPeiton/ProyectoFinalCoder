@@ -1,0 +1,63 @@
+{% extends 'AppRegistro/index.html' %}
+
+{% load static %}
+
+{% block titulo %}
+    <h1 class="text-white font-weight-bold">Buscar usuario</h1>
+{% endblock %}
+
+{% block botones %}
+    <p class="text-white-75 mb-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim autem vero temporibus possimus, eligendi consequatur, magni voluptatem rem odio aperiam pariatur inventore. Illum, inventore molestias. Neque quasi vel atque quo.</p>
+    <a class="btn btn-primary btn-xl" href="{% url 'Inicio' %}">Volver al inicio</a>
+    <a class="btn btn-primary btn-xl" href="{% url 'Buscar usuario' %}">Buscar usuario</a>
+    <a class="btn btn-primary btn-xl" href="{% url 'Registrarse' %}">Registrarse</a>
+{% endblock %}
+
+{% block resultadoBusqueda %}
+
+<div class="container mt-3 mb-3">
+    <div class="row">
+
+        <div class="col-4">
+            <h3>Usuarios:</h3>
+            {% for u in usuarios %}
+                <li>Nombre: {{u.nombre}} {{u.apellido}} - Usuario: {{u.nombreUsuario}}</li>
+                <button>
+                    <a href="{% url 'Eliminar Usuario' u.id%}">Eliminar</a> 
+                </button>
+                <button>
+                    <a href="{% url 'Editar Usuario' u.id%}">Editar</a> 
+                </button>
+            {% endfor %}
+        </div>
+
+        <div class="col-4">
+            <h3>Redactores:</h3>
+            {% for r in redactores %}
+                <li>Nombre: {{r.nombre}} {{r.apellido}}</li>
+                <button>
+                    <a href="{% url 'Eliminar Redactor' r.id%}">Eliminar</a> 
+                </button>
+                <button>
+                    <a href="{% url 'Editar Redactor' r.id%}">Editar</a> 
+                </button>
+            {% endfor %}
+        </div>
+
+        <div class="col-4">
+            <h3>Suscriptores:</h3>
+            {% for s in suscriptores %}
+                <li>Nombre: {{s.nombre}} {{s.apellido}}</li>
+                <button>
+                    <a href="{% url 'Eliminar Suscriptor' s.id%}">Eliminar</a> 
+                </button>
+                <button>
+                    <a href="{% url 'Editar Suscriptor' s.id%}">Editar</a> 
+                </button>
+            {% endfor %}
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}

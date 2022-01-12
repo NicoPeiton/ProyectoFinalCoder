@@ -1,7 +1,8 @@
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
-
 from .models import Redactor, Suscriptor, Usuario
 from .forms import *
+from django.contrib.auth.decorators import login_required
 
 
 def registro(request):
@@ -14,6 +15,28 @@ def quienes(request):
 
     return render(request, "AppRegistro/quienes.html")
 
+
+def register(request):
+
+    if request.method == 'POST':
+
+        form = UserRegisterForm(request.POST)
+
+        if form.is_valid():
+
+            username = form.cleaned_data["username"]
+            form.save()
+            return render(request, "AppRegistro/index.html", {"mensaje":f"Usuario {username} creado con éxito"})
+
+    else:
+
+        form = UserRegisterForm()
+
+    return render(request, "AppRegistro/register.html", {"form":form})
+
+
+
+@login_required(login_url="/AppLogin/login")
 def registroUsuario(request):
 
     if request.method == 'POST':
@@ -44,6 +67,8 @@ def registroUsuario(request):
 
     return render(request, "AppRegistro/registroUsuario.html", {"miFormulario":miFormulario}) 
 
+
+@login_required(login_url="/AppLogin/login")
 def registroRedactor(request):
 
     if request.method == 'POST':
@@ -73,6 +98,8 @@ def registroRedactor(request):
 
     return render(request, "AppRegistro/registroRedactor.html", {"miFormulario":miFormulario}) 
 
+
+@login_required(login_url="/AppLogin/login")
 def registroSuscriptor(request):
 
     if request.method == 'POST':
